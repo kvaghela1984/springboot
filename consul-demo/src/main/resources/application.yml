@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: consul-demo
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+      discovery:
+        instance-id: ${spring.application.name}:${random.value}
+        serviceName: ${spring.application.name}
+        healthCheckPath: /health
+        healthCheckInterval: 20s

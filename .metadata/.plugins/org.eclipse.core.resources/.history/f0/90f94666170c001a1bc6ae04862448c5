@@ -1,0 +1,21 @@
+package com.example.springboot.consul.demo.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RefreshScope
+public class Health {
+
+	@Value("${my.property}")
+	String value;
+
+	@RequestMapping("/health")
+	public String health() {
+		System.out.println(value);
+		return "Healthy";
+	}
+
+}
