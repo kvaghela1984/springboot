@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "users")
-public class UserEntity {
+public class User {
 	@Id
 	@Column(name = "username")
 	private String username;
@@ -28,8 +28,8 @@ public class UserEntity {
 	@Column(name = "last_login")
 	private Timestamp lastLoginTime;
 	
-	public UserEntity() {};
-	public UserEntity(String username, String email, String password, Timestamp createdTime, Timestamp lastLoginTime) {
+	public User() {};
+	public User(String username, String email, String password, Timestamp createdTime, Timestamp lastLoginTime) {
 		super();
 		this.username = username;
 		this.email = email;

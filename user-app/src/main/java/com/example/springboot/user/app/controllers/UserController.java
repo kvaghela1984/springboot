@@ -3,6 +3,7 @@ package com.example.springboot.user.app.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.example.springboot.user.app.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,13 @@ import com.example.springboot.user.app.models.SignUpRequest;
 import com.example.springboot.user.app.service.LoginService;
 
 @RestController
-public class LoginController {
+public class UserController {
 	
 	@Autowired
 	private LoginService loginService;
+
+	@Autowired
+	private ProfileService profileService;
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity signUp(@RequestBody SignUpRequest request){
@@ -50,13 +54,14 @@ public class LoginController {
 	public ResponseEntity<String> updateProfile(HttpServletRequest httpServletRequest, @RequestBody ProfileUpdate request){
 		
 		HttpSession session = httpServletRequest.getSession(false);
-		
-		
+
 		if((session == null) | (session != null && session.getAttribute("user") == null)){
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Login To update your profile");
 		}
+		profileService.updateProfile(request, (String) session.getAttribute("user"));
+
 		httpServletRequest.changeSessionId();
-		return ResponseEntity.status(HttpStatus.OK).body("Profile updated");
+		return ResponseEntity.status(HttpStatus.OK).build();
 
 	}
 	
