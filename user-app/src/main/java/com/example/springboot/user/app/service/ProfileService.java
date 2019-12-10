@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.Observable;
 import java.util.Optional;
 
 @Service
@@ -78,6 +79,11 @@ public class ProfileService {
 		profile.setUpdateTime(new Timestamp(Instant.now().toEpochMilli()));
 		profileRepository.save(profile);
 
+	}
+
+	public UserProfile getUserProfile(String userName){
+		UserProfile profile = profileRepository.findById(userName).orElse(null);
+		return profile;
 	}
 
 

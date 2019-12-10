@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @EnableRedisHttpSession
