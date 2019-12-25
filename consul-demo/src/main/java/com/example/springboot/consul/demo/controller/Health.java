@@ -29,9 +29,7 @@ public class Health {
 
 	@RequestMapping("/health")
 	public String health() {
-		System.out.println(appProperty);
-		System.out.println(commonProperty);
-		return "Healthy";
+		return "App property: " + appProperty + " Common property: " + commonProperty;
 	}
 
 	@RequestMapping("/services")
