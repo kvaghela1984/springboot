@@ -28,3 +28,10 @@ hs_err_pid*
 */.metadata/*
 .metadata/*
 /.metadata/
+spark-demo/.idea/$PRODUCT_WORKSPACE_FILE$
+spark-demo/.idea/compiler.xml
+spark-demo/.idea/copyright/profiles_settings.xml
+spark-demo/.idea/copyright/Test.xml
+spark-demo/.idea/misc.xml
+spark-demo/.idea/vcs.xml
+spark-demo/spark-demo.iml
