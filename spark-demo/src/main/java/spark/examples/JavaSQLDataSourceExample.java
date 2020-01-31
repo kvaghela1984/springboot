@@ -271,7 +271,10 @@ public class JavaSQLDataSourceExample {
                 .option("password", "postgres")
                 .load();
 
-        jdbcDF.collectAsList().stream().forEach(row -> {
+        jdbcDF.show();
+        jdbcDF.createOrReplaceTempView("user");
+        Dataset<Row> result = spark.sql("SELECT * FROM user where username = 'kvaghela' ");
+        result.collectAsList().stream().forEach(row -> {
             Timestamp created_on = (Timestamp) row.getAs("created_on");
             System.out.println(row.getAs("username").toString());
             System.out.println(row.getAs("email").toString());
