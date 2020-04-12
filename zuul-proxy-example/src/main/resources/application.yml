@@ -1,0 +1,39 @@
+server:
+  port: 8080
+zuul:
+  stripPrefix: false
+  routes:
+    jwt-authenticate:
+      path: /authenticate
+      sensitiveHeaders:
+      url: http://localhost:8001
+    jwt-hello:
+      path: /hello
+      sensitiveHeaders:
+      url: http://localhost:8001
+    user-signup:
+      path: /signup
+      sensitiveHeaders:
+      url: http://localhost:8002
+    user-login:
+      path: /login
+      sensitiveHeaders:
+      url: http://localhost:8002
+    update-profile:
+      path: /update-profile
+      sensitiveHeaders:
+      url: http://localhost:8002
+    logout:
+      path: /logout
+      sensitiveHeaders:
+      url: http://localhost:8002
+    profile:
+      path: /profile/**
+      sensitiveHeaders:
+      url: http://localhost:8002
+      stripPrefix: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
