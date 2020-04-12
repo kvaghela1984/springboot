@@ -37,11 +37,13 @@ public class HelloWorldController {
 
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassWord())
             );
         }
         catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password", e);
+        }catch (Exception e){
+            throw new Exception("System Error", e);
         }
 
 

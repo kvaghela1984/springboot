@@ -3,14 +3,14 @@ package com.example.springboot.jwttutorial.models;
 public class AuthenticationRequest {
 
     private String userName;
-    private String password;
+    private String passWord;
 
     public AuthenticationRequest() {
     }
 
-    public AuthenticationRequest(String userName, String password) {
+    public AuthenticationRequest(String userName, String passWord) {
         this.userName = userName;
-        this.password = password;
+        this.passWord = passWord;
     }
 
     public String getUserName() {
@@ -21,11 +21,11 @@ public class AuthenticationRequest {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 }
