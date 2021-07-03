@@ -1,0 +1,30 @@
+originator: test-application
+spring:
+  application:
+    name: kafka-streams-product-tracker-sample
+  cloud:
+    stream:
+      kafka:
+        streams:
+          binder:
+            configuration.commit.interval.ms: 1000
+      bindings:
+        produceOrder-out-0:
+          destination: test_stream
+          content-type: application/json
+          producer:
+            partitionKeyExpression: "1"
+        processOrder-in-0:
+          destination: test_stream
+          content-type: application/json
+    function:
+      definition: processOrder;produceOrder
+  ## PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create

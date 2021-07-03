@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQlDialect
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    name: postgres
+    password: password
+    username: postgres
+
+jwt:
+  key: keystore.jks
+  password: password
+  key-alias: gateway
+  signing: gateway
+
+logging.level.org.springframework.security: DEBUG
+
