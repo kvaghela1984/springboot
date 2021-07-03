@@ -7,11 +7,11 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -82,8 +82,8 @@ public class JwtUtil {
         headers.put("typ","JWT");
         Collection<? extends GrantedAuthority> authorities = authoritiesClaims == null? AuthorityUtils.NO_AUTHORITIES : AuthorityUtils.commaSeparatedStringToAuthorityList(authoritiesClaims.asString());
 
-        Jwt jwt = new Jwt(decodedJWT.getToken(), decodedJWT.getIssuedAt().toInstant(), decodedJWT.getExpiresAt().toInstant(), headers, claimsMap);
-        return new JwtAuthenticationToken(jwt);
+        User principal = new User(decodedJWT.getSubject(),"",authorities);
+        return new UsernamePasswordAuthenticationToken(principal,token,authorities);
     }
 
     public TokenResponse createToken(Authentication authentication){
