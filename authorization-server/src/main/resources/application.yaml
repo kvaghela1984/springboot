@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    password: password
+    username: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQlDialect
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    name: postgres
+    password: password
+    username: postgres
+debug: true
