@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:mysql://localhost:3306/mysql
     password: password
-    username: postgres
+    username: root
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQlDialect
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/postgres
-    name: postgres
-    password: password
-    username: postgres
+    database-platform: com.mysql.jdbc.Driver
+#  r2dbc:
+#    url: r2dbc:postgresql://localhost:5432/postgres
+#    name: postgres
+#    password: password
+#    username: postgres
 debug: true
