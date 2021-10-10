@@ -35,3 +35,7 @@ spark-demo/.idea/copyright/Test.xml
 spark-demo/.idea/misc.xml
 spark-demo/.idea/vcs.xml
 spark-demo/spark-demo.iml
+webClient-oauth2/.mvn/wrapper/maven-wrapper.jar
+webClient-oauth2/.mvn/wrapper/maven-wrapper.properties
+webClient-oauth2/.mvn/wrapper/MavenWrapperDownloader.java
+*.xml
