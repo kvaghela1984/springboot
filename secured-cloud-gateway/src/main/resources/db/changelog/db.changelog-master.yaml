@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: kamlesh
+      sqlFile:
+        path: ./create-endpoint-table.sql
+        relativeToChangelogFile: true

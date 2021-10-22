@@ -6,11 +6,20 @@ logging:
     org.springframework.security: DEBUG
     org.springframework.security.oauth2: DEBUG
     org.springframework.cloud.gateway: DEBUG
+liquibase:
+  change-log: classpath:liquibase-changeLog.xml
+  default-schema: gateway
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: catch-all
-          uri: no://op
-          predicates:
-            - Path=/**
+  datasource:
+    url: jdbc:mysql://localhost:3306/gateway
+    password: password
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: catch-all
+#          uri: no://op
+#          predicates:
+#            - Path=/**
