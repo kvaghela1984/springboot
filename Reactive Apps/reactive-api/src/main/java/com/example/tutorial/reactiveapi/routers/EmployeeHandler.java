@@ -21,7 +21,7 @@ public class EmployeeHandler {
 
     public Mono<ServerResponse> getEmployee(ServerRequest request) {
         return employeeReactiveRepository.findById(Long.valueOf(request.pathVariable("employeeId")))
-                .delayElement(Duration.ofSeconds(2))
+                .delayElement(Duration.ofSeconds(1))
                 .flatMap(employee -> ServerResponse.ok()
                         .contentType(APPLICATION_JSON)
                         .bodyValue(employee))
@@ -44,7 +44,7 @@ public class EmployeeHandler {
     public Mono<ServerResponse> saveEmployee(ServerRequest request) {
         return request.bodyToMono(Employee.class)
                 .doOnNext(employee -> employeeReactiveRepository.save(employee).subscribe()) //without subscribe save is not executed.
-                .delayElement(Duration.ofSeconds(3))
+                .delayElement(Duration.ofSeconds(2))
                 .flatMap(employee -> ServerResponse.ok()
                         .contentType(APPLICATION_JSON)
                         .bodyValue(employee))
