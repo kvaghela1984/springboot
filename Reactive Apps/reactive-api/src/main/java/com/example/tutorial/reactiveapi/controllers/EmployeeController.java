@@ -32,17 +32,4 @@ public class EmployeeController {
                     System.out.println(o.toString());
                 });
     }
-
-//    @PostMapping
-//    private Mono<Employee> updateEmployee(ServerRequest request) {
-//        return request.bodyToMono(Employee.class)
-//                .flatMap(employee -> {
-//                            return employeeReactiveRepository.save(employee)
-//                                    .onErrorContinue((e, o) -> {
-//                                        System.out.println(e.getMessage());
-//                                        System.out.println(o.toString());
-//                                    });
-//                        }
-//                );
-//    }
 }
