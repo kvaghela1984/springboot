@@ -38,7 +38,7 @@ spark-demo/spark-demo.iml
 webClient-oauth2/.mvn/wrapper/maven-wrapper.jar
 webClient-oauth2/.mvn/wrapper/maven-wrapper.properties
 webClient-oauth2/.mvn/wrapper/MavenWrapperDownloader.java
-*.xml
+**/.idea/**
 .DS_Store
 .DS_Store
 secured-cloud-gateway/.mvn/wrapper/maven-wrapper.jar
